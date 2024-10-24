@@ -417,6 +417,7 @@ Java_app_organicmaps_editor_Editor_nativeSearchCreatableFeatureTypes(JNIEnv * en
 {
   std::string const & lang = jni::ToNativeString(env, jLang);
   GetFeatureCategories().AddLanguage(lang);
+  GetFeatureCategories().AddLanguage("en");
   return jni::ToJavaStringArray(env,
                                 GetFeatureCategories().Search(jni::ToNativeString(env, query)));
 }
