@@ -55,6 +55,9 @@ std::string GetTypeForFeature(editor::XMLFeature const & node)
     }
   }
 
+  if (node.HasTag("addr:housenumber") || node.HasTag("addr:street") || node.HasTag("addr:postcode"))
+    return "address";
+
   // Did not find any known tags.
   return node.HasAnyTags() ? "unknown object" : "empty object";
 }
