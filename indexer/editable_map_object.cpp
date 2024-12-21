@@ -409,6 +409,14 @@ bool EditableMapObject::ValidateHouseNumber(string const & houseNumber)
   return false;
 }
 
+bool EditableMapObject::NonStaticValidateHouseNumber(string const & houseNumber)
+{
+  if (houseNumber.empty() && m_types.Has(classif().GetTypeByReadableObjectName("building-address")))
+    return false;
+
+  return ValidateHouseNumber(houseNumber);
+}
+
 // static
 bool EditableMapObject::ValidateFlats(string const & flats)
 {
